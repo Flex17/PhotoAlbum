@@ -1,0 +1,19 @@
+.wrapper{
+    border: 1px solid black;
+    padding: 10px;
+    max-width: 300px;
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+    width: 23%;
+    cursor: pointer;
+    color: black;
+    text-decoration: none;
+    box-shadow: 9px 9px 3px -5px rgba(34, 60, 80, 0.2);
+    text-align: center;
+}
+
+.id{
+    text-align: center;
+    font-family: 'Roboto',
+    sans-serif;
+}

@@ -1,0 +1,11 @@
+.wrapper {
+    max-width: 300px;
+    margin-bottom: 1rem;
+    width: 23%;
+    margin-right: 1rem;
+    cursor: pointer;
+}
+
+.picture{
+    width: 100%;
+}

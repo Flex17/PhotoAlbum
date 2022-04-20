@@ -1,0 +1,30 @@
+.wrapper{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.navigate{
+    border: none;
+    padding: 10px 15px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+    border: 1px solid transparent;
+    box-shadow: 9px 9px 3px -7px rgba(34, 60, 80, 0.2);
+} 
+.navigate:hover{
+    transition: all 0.5s;
+    border: 1px solid black;
+}
+
+.loading {
+    font-size: 50px;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    margin-top: 200px;
+}
