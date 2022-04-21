@@ -4,7 +4,9 @@ const initialState: IPhotosState = {
     albumId: 0,
     photos: [],
     loading: false,
-    error: ''
+    error: '',
+    currentPhotoId: 0,
+    isShowSlider: false
 }
 
 const photosReducer = (state = initialState, action: PhotosAction): IPhotosState => {
@@ -34,6 +36,18 @@ const photosReducer = (state = initialState, action: PhotosAction): IPhotosState
                 ...state,
                 loading: false,
                 error: action.error
+            }
+
+        case PhotosActionTypes.SET_CURRENT_PHOTO_ID:
+            return {
+                ...state,
+                currentPhotoId: action.currentPhotoId
+            }
+
+        case PhotosActionTypes.SHOW_SLIDER:
+            return {
+                ...state,
+                isShowSlider: action.isShowSlider
             }
 
 

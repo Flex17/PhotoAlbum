@@ -2,7 +2,9 @@ export interface IPhotosState {
     albumId: number,
     loading: boolean,
     photos: IPhoto[],
-    error: string
+    error: string,
+    currentPhotoId: number,
+    isShowSlider: boolean
 }
 
 export interface IPhoto {
@@ -16,7 +18,9 @@ export enum PhotosActionTypes {
     SET_ALBUM = 'SET_ALBUM',
     FETCH_PHOTOS = 'FETCH_PHOTOS',
     FETCH_PHOTOS_SUCCESS = 'FETCH_PHOTOS_SUCCESS',
-    FETCH_PHOTOS_ERROR = 'FETCH_PHOTOS_ERROR'
+    FETCH_PHOTOS_ERROR = 'FETCH_PHOTOS_ERROR',
+    SET_CURRENT_PHOTO_ID = 'SET_CURRENT_PHOTO_ID',
+    SHOW_SLIDER = 'SHOW_SLIDER'
 }
 
 interface ISetAlbumAction {
@@ -24,21 +28,37 @@ interface ISetAlbumAction {
     id: number
 }
 
-interface IFetchPhotos {
+interface IFetchPhotosAction {
     type: PhotosActionTypes.FETCH_PHOTOS,
     loading: boolean
 }
 
-interface IFetchPhotosSuccess {
+interface IFetchPhotosSuccessAction {
     type: PhotosActionTypes.FETCH_PHOTOS_SUCCESS,
     loading: boolean,
     photos: IPhoto[]
 }
 
-interface IFetchPhotosError {
+interface IFetchPhotosErrorAction {
     type: PhotosActionTypes.FETCH_PHOTOS_ERROR,
     error: string,
     loading: boolean
 }
 
-export type PhotosAction = ISetAlbumAction | IFetchPhotos | IFetchPhotosSuccess | IFetchPhotosError
+interface ISetCurrentPhotoIdAction {
+    type: PhotosActionTypes.SET_CURRENT_PHOTO_ID,
+    currentPhotoId: number
+}
+
+interface IShowSliderAction {
+    type: PhotosActionTypes.SHOW_SLIDER,
+    isShowSlider: boolean
+}
+
+export type PhotosAction =
+    ISetAlbumAction |
+    IFetchPhotosAction |
+    IFetchPhotosSuccessAction |
+    IFetchPhotosErrorAction |
+    ISetCurrentPhotoIdAction |
+    IShowSliderAction

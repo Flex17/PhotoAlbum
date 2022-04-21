@@ -1,14 +1,18 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { IPhotosState } from '../../../../types/photos';
+import SliderContainer from '../../../Slider/SliderContainer';
 import Photo from '../Photo/Photo';
 import css from './photos.module.css'
 
 interface IPhotos extends IPhotosState {
-    fetchPhotos: (albumId: number) => void
+    fetchPhotos: (albumId: number) => void,
+    setCurrentPhotoId: (id: number) => void,
+    showSlider: (isShowSlider: boolean) => void,
+    isShowSlider: boolean
 }
 
-const Photos: React.FC<IPhotos> = ({ photos, loading, error, albumId, fetchPhotos }) => {
+const Photos: React.FC<IPhotos> = ({ photos, loading, albumId, fetchPhotos, setCurrentPhotoId, showSlider, isShowSlider }) => {
 
     const navigate = useNavigate()
 
@@ -36,6 +40,8 @@ const Photos: React.FC<IPhotos> = ({ photos, loading, error, albumId, fetchPhoto
                                 return (
                                     <Photo
                                         key={photo.id}
+                                        setCurrentPhotoId={setCurrentPhotoId}
+                                        showSlider={showSlider}
                                         title={photo.title}
                                         url={photo.url}
                                         id={photo.id}
@@ -44,6 +50,12 @@ const Photos: React.FC<IPhotos> = ({ photos, loading, error, albumId, fetchPhoto
                             })
                         }
                     </div>
+            }
+            {
+                isShowSlider ?
+                    <SliderContainer />
+                    :
+                    <></>
             }
         </>
     )

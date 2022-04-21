@@ -34,3 +34,17 @@ export const setAlbumId = (id: number): PhotosAction => {
         id: id
     }
 }
+
+export const setCurrentPhotoId = (id: number): PhotosAction => {
+    return {
+        type: PhotosActionTypes.SET_CURRENT_PHOTO_ID,
+        currentPhotoId: id
+    }
+}
+
+export const showSlider = (isShowSlider: boolean): PhotosAction => {
+    return {
+        type: PhotosActionTypes.SHOW_SLIDER,
+        isShowSlider: isShowSlider
+    }
+}
